@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-wrapper pt-80" style="min-height: 575px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+		<h1>
+			Client Manager
+		</h1>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="breadcrumb-item"><a href="javascript:void(0);">Client Manager</a></li>
+		</ol>
+	</section>
+	<section class="content">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="portlet light bordered">
+					<div class="portlet-title">
+						<div class="caption font-dark">
+							<i class="icon-search font-dark"></i>
+							<!--<span class="caption-subject bold uppercase">Search</span>-->
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<form action="" method="GET" accept-charset="UTF-8"  name="Search Supplier">
+						<div class="form-body">
+							<div class="row">
+								<div class="col-lg-2">
+									<div class="form-group">
+										<input class="form-control" placeholder="Search By Name" name="full_name" value="{{ user.full_name }}"  type="text">
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<input class="form-control" placeholder="Search By Email" name="email" type="text" value="{{ values.email }}">
+									</div>
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group">
+										<select class="form-control" name="is_active">
+											<option value="{{ values.is_active }}" selected="selected">All Status</option>
+											<option value="1">Active</option>
+											<option value="0">In-active</option></select>
+									</div>
+								</div>
+
+								<div class="col-lg-3">
+									<button class="btn btn-lg btn-info btn-file" type="submit">Search</button>
+									<a class="btn btn-lg btn-info btn-file" href="">Show All</a>
+
+								</div>
+									<div class="col-lg-2">
+											<a class="btn btn-lg btn-yellow" href=""><i class="fa fa-plus"> Add Client</i></a>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12">
+				<!-- Default box -->
+				<div class="box box-solid bg-black">
+
+					<div class="box-body">
+						<div class="table-responsive">
+							<div class="modal fade" id="remove_5">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title">Delete</h4>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">×</span></button>
+													</div>
+													<div class="modal-body">
+														<p> Are you sure, you want to remove this Clients? All information associated with this Clients will also be removed.</p>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														<a href="" class="btn btn-danger float-right" title="Confirm">Remove</a>
+
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div><div class="modal fade" id="remove_4">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title">Delete</h4>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">×</span></button>
+													</div>
+													<div class="modal-body">
+														<p> Are you sure, you want to remove this Clients? All information associated with this Clients will also be removed.</p>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														<a href="4" class="btn btn-danger float-right" title="Confirm">Remove</a>
+
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div><div class="modal fade" id="remove_2">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title">Delete</h4>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">×</span></button>
+													</div>
+													<div class="modal-body">
+														<p> Are you sure, you want to remove this Clients? All information associated with this Clients will also be removed.</p>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														<a href="" class="btn btn-danger float-right" title="Confirm">Remove</a>
+
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div><table class="table table-bordered no-margin">
+								<thead>
+									<tr>
+										<th><a href="">Name </a></th>
+										<th><a href="">Email </a></th>
+										<th><a href="">Status </a></th>
+										<th><a href="">Joined </a></th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								 {% if user %}
+                                        {% for users in user %}
+                                <tr>
+                                    <td>{{ users.full_name }} </td>
+                                    <td><a class="text-yellow hover-warning" href="mailto:{{ users.email }}"> {{ users.email }} </a></td>
+									{% if users.is_active == True %}
+										<td> ACTIVE	</td>
+									{% else %}
+										<td> De Active	</td>
+									{% endif %}
+                                    <td>{{ users.date_joined }}</td>
+										<td>
+											<a title="Edit" href="{% url 'profile' users.id %}"><i class="fa fa-fw fa-edit theme-blue"></i></a>
+											<a title="Change Password" href=""><i class="fa fa-fw fa-key theme-blue"></i></a>
+											<a title="Security" href="javascript:void(0);" data-target="" data-toggle=""><i class="fa fa-fw fa-lock theme-blue"></i></a>
+											<a title="Device Logs" href="javascript:void(0);" data-target="" data-toggle=""><i class="fa fa-fw fa-list theme-blue"></i></a>
+											<a title="Subscriptions" href="javascript:void(0);" data-target="" data-toggle=""><i class="fa fa-fw fa-money theme-blue"></i></a>
+											<a title="Portfolio" href="javascript:void(0);" data-target="" data-toggle=""><i class="fa fa-fw fa-file theme-blue"></i></a>
+											<a title="Remove" href="javascript:void(0);" data-target="#remove_5" data-toggle="modal"><i class="fa fa-fw fa-trash red"></i></a>
+										</td>
+									</tr>
+										{% endfor %}
+								 {% else %}
+								 	<td> No Listing Available </td>
+								 {% endif %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- /.box-body -->
+				</div>
+				<!-- /.box -->
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}

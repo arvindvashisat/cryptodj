@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Members Profile
+      </h1>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Members</a></li>
+        <li class="breadcrumb-item active">Members Profile</li>
+      </ol>
+    </section>
+	  <!-- Main content -->
+  <section class="content">
+        <form action="" enctype="multipart/form-data" method="POST">
+         <div class="row">
+             {% if settings %}
+                {% for setting in settings %}
+                   <td>{{ setting.label }}</td>
+                {% endfor %}
+             {% endif %}
+         </div>
+        </form>
+  </section>
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}

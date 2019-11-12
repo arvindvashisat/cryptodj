@@ -1,0 +1,88 @@
+{% load static %}
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+<!-- sidebar -->
+<section class="sidebar">
+  <!-- Sidebar user panel -->
+  <div class="user-panel">
+     <div class="ulogo">
+         <a href="">
+          <!-- logo for regular state and mobile devices -->
+          <span><b>Crypto </b>Admin</span>
+        </a>
+    </div>
+    <div class="image">
+
+        <img src="{% static 'img/user2-160x160.jpg' %}" class="rounded-circle" alt="User Image">
+    </div>
+
+    <div class="info">
+      <p>Admin Template </p>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i class="ion ion-gear-b"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email">
+          <i class="ion ion-android-mail"></i></a>
+        <a href="javascript:{document.getElementById('logout').submit()}" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ion ion-power"></i></a>
+        <form action="" method="POST" id="logout">
+
+          <input type="hidden">
+        </form>
+    </div>
+  </div>
+  <!-- sidebar menu -->
+
+  <ul class="sidebar-menu" data-widget="tree">
+    <li class="nav-devider"></li>
+    <li class="header nav-small-cap">PERSONAL</li>
+    <li>
+      <a href="">
+        <i class="icon-home"></i> <span>Dashboard</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-right pull-right"></i>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'members' %}">
+        <i class="icon-people"></i><span>Members</span>
+      </a>
+    </li>
+    <li class="treeview">
+      <a href="#">
+        <i class="icon-equalizer"></i>
+        <span>Track the Market </span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-right pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="pages/tickers/tickers.html">Ticker</a></li>
+        <li><a href="pages/tickers/crypto-live-pricing.html">Live Crypto Prices</a></li>
+      </ul>
+    </li>
+    <li class="treeview">
+      <a href="#">
+        <i class="icon-wallet"></i>
+        <span>Transactions</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-right pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="pages/transactions/tables-transactions.html">Transactions Tables</a></li>
+        <li><a href="pages/transactions/transaction-search.html">Transactions Search</a></li>
+        <li><a href="pages/transactions/transaction-details.html">Single Transaction</a></li>
+        <li><a href="pages/transactions/counter-transactions.html">Transactions Counter</a></li>
+      </ul>
+    </li>
+    <li class="treeview">
+      <a href="#">
+        <i class="icon-graph"></i>
+        <span>Stock News </span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-right pull-right"></i>
+        </span>
+      </a>
+    </li>
+  </ul>
+</section>
+</aside>
